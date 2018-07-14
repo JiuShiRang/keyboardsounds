@@ -14,11 +14,11 @@
 
 class SoundPlayer : public QObject {
     Q_OBJECT
-      QMediaPlayer m_player;
-//      QMediaContent m_defaultContent;  // beep?
+      QMediaPlayer m_playerA;
+      QMediaPlayer m_playerB;
+      bool m_playAorB;
       QHash<int, QSharedPointer<QBuffer>> m_soundBuffers;
 
-//    QVector<QSharedPointer<QMediaPlayer>> m_playerList;
 //    int m_playerCount;
 //    int m_playerCurrent;
 

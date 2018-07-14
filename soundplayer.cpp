@@ -2,16 +2,6 @@
 
 SoundPlayer::SoundPlayer(QObject* parent)
 {
-//    QFile file("a.mp3");
-//    if(!file.open(QIODevice::ReadOnly)) {
-//        qDebug() << "no file found" << "a.mp3";
-//        exit(0);
-//    }
-//    QBuffer *buffer = new QBuffer(this);
-//    buffer->setData(file.readAll());
-//    buffer->open(QIODevice::ReadOnly);
-//    m_player.setMedia(QMediaContent(), buffer);
-    //     m_player.stop()Q
 //    m_playerCurrent = 0;
 //    m_playerCount = 2;
 //    for (int i = 0; i < m_playerCount; i++) {
@@ -53,8 +43,10 @@ SoundPlayer& SoundPlayer::getInstance()
 void SoundPlayer::playByCode(int kCode)
 {
     //    m_player.stop();
-    m_player.setMedia(QMediaContent(), m_soundBuffers.value(kCode).data());
-    m_player.play();
+    QMediaPlayer& player = m_playAorB ? m_playerA : m_playerB;
+    m_playAorB = ~m_playAorB;
+    player.setMedia(QMediaContent(), m_soundBuffers.value(kCode).data());
+    player.play();
 //    m_playerList[m_playerCurrent]->play();
 //    m_playerCurrent++;
 //    if (m_playerCurrent >= m_playerCount) {
