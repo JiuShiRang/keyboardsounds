@@ -9,25 +9,29 @@
 #include <QString>
 #include <QUrl>
 #include <QVector>
+#include <QFile>
+#include <QBuffer>
 
 class SoundPlayer : public QObject {
-  Q_OBJECT
-  //  QMediaPlayer m_player;
-  //  QMediaContent m_defaultContent;  // beep?
-  QVector<QSharedPointer<QMediaPlayer>> m_playerList;
-  int m_playerCount;
-  int m_playerCurrent;
+    Q_OBJECT
+      QMediaPlayer m_player;
+//      QMediaContent m_defaultContent;  // beep?
+      QHash<int, QSharedPointer<QBuffer>> m_soundBuffers;
 
- public:
-  explicit SoundPlayer(QObject* parent = nullptr);
+//    QVector<QSharedPointer<QMediaPlayer>> m_playerList;
+//    int m_playerCount;
+//    int m_playerCurrent;
 
-  static SoundPlayer& getInstance();
+public:
+    explicit SoundPlayer(QObject* parent = nullptr);
 
-  void playByCode(int kCode);
+    static SoundPlayer& getInstance();
 
- signals:
+    void playByCode(int kCode);
 
- public slots:
+signals:
+
+public slots:
 };
 
-#endif  // SOUNDPLAYER_H
+#endif // SOUNDPLAYER_H

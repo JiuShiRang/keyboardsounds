@@ -20,4 +20,4 @@ SOURCES += main.cpp \
 HEADERS += \
     soundplayer.h
 
-LIBS += -lwinmm
+#LIBS += -lwinmm
