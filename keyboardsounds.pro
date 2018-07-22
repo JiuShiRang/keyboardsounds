@@ -21,3 +21,4 @@ HEADERS += \
     soundplayer.h
 
 #LIBS += -lwinmm
+LIBS += -luser32

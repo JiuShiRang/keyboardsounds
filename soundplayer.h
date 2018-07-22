@@ -1,7 +1,9 @@
 #ifndef SOUNDPLAYER_H
 #define SOUNDPLAYER_H
 
+#include <QBuffer>
 #include <QDir>
+#include <QFile>
 #include <QHash>
 #include <QMediaPlayer>
 #include <QObject>
@@ -9,18 +11,16 @@
 #include <QString>
 #include <QUrl>
 #include <QVector>
-#include <QFile>
-#include <QBuffer>
 
 class SoundPlayer : public QObject {
     Q_OBJECT
-      QMediaPlayer m_playerA;
-      QMediaPlayer m_playerB;
-      bool m_playAorB;
-      QHash<int, QSharedPointer<QBuffer>> m_soundBuffers;
+    QMediaPlayer m_playerA;
+    QMediaPlayer m_playerB;
+    bool m_playAorB;
+    QHash<int, QSharedPointer<QBuffer>> m_soundBuffers;
 
-//    int m_playerCount;
-//    int m_playerCurrent;
+    //    int m_playerCount;
+    //    int m_playerCurrent;
 
 public:
     explicit SoundPlayer(QObject* parent = nullptr);
